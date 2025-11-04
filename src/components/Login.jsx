@@ -31,7 +31,6 @@ export const Login = () => {
 
   return (
     <div className="auth-container">
-      <h1>HOLA</h1>
       <div className="auth-form">
         <h2>Iniciar Sesión</h2>
         <form onSubmit={handleSubmit}>
