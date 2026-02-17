@@ -1,6 +1,6 @@
 import { Outlet, Navigate, NavLink } from "react-router-dom";
 import { useAuth } from "./contexts/AuthContext";
-
+import './pages/styles/protectedRoute.css';
 export const ProtectedRoute = () => {
   const { isAuthenticated, userData } = useAuth();
 
