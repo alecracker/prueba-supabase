@@ -1,30 +1,28 @@
-import "./Auth.css"
-import { useState } from 'react';
+import "./Auth.css";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import supabase from "../api/supaBase.js";
 import bcrypt from "bcryptjs";
 
-
-
 //Siempre poner el .js
 const Register = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    password: '',
-    confirmPassword: ''
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
   });
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  const handleSwitch = () =>{
-    navigate("/login")
-  }
+  const handleSwitch = () => {
+    navigate("/login");
+  };
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -32,27 +30,31 @@ const Register = () => {
     e.preventDefault();
     // Validar que las contraseñas coincidan
     if (formData.password !== formData.confirmPassword) {
-      alert('Las contraseñas no coinciden');
+      alert("Las contraseñas no coinciden");
       return;
     }
-    console.log('Datos de registro:', formData);
-    
+    console.log("Datos de registro:", formData);
+
     //? Encriptación de la contraseña con bcrypt (bcryptjs)
-    const passwordHashed = await bcrypt.hash(formData.password, 12)
+    const passwordHashed = await bcrypt.hash(formData.password, 12);
     console.log(passwordHashed);
-    
+
     //? Peticion para registrar con Supabase
-    const {error} = await supabase.from("users").insert({
+    const { error } = await supabase.from("users").insert({
       username: formData.name,
       password_hash: passwordHashed,
-      email : formData.email
-    })
+      email: formData.email,
+    });
 
-    if(error){
-      alert("Error")
-      return
+    if (error) {
+      console.log(error);
+      if (error.code === "23505") {
+        alert("Este correo ya está registrado.");
+      } else {
+        alert("Error: " + error.message);
+      }
+      return;
     }
-
   };
 
   //si hay un await la funcion debe ser async
@@ -106,7 +108,7 @@ const Register = () => {
           </button>
         </form>
         <p className="auth-switch">
-          ¿Ya tienes cuenta?{' '}
+          ¿Ya tienes cuenta?{" "}
           <span onClick={handleSwitch} className="auth-link">
             Inicia sesión
           </span>

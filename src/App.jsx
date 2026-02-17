@@ -1,11 +1,11 @@
 import { Routes, Route } from "react-router-dom";
-
 import { ProtectedRoute } from "./ProtectedRoute.jsx";
-import Register from "./components/Register.jsx";
+
 import { Login } from "./components/Login.jsx";
-import HomePage from "./pages/HomePage.jsx";
 import { UsuariosPage } from "./pages/UsuariosPage.jsx";
 import { NotFoundPage } from "./pages/NotFoundPage.jsx";
+import Register from "./components/Register.jsx";
+import HomePage from "./pages/HomePage.jsx";
 
 function App() {
   return (
