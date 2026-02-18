@@ -9,7 +9,7 @@
     padding: 30px;
     margin: auto;
     width: 350px;
-    height: auto; /* Let height adjust to content */
+    height: auto;
     min-height: 450px;
     flex-direction: column;
     display: flex;
