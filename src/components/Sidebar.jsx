@@ -1,11 +1,18 @@
 import { Outlet, Navigate, NavLink } from "react-router-dom";
 import "./Sidebar.css";
+import {
+  BriefCase,
+  ClipboardList,
+  Utensils,
+  ExitArrow,
+} from "../assets/Icons/Icons";
+
 export const Sidebar = () => {
   const links = [
-    { to: "/", name: "Resumen" },
-    { to: "/usuarios", name: "Empleados" },
-    { to: "/clientes", name: "Clientes" },
-    { to: "/personas", name: "Pedidos" },
+    { to: "/", name: "Resumen", icon: <BriefCase /> },
+    { to: "/usuarios", name: "Administracion", icon: <BriefCase /> },
+    { to: "/clientes", name: "Operaciones", icon: <Utensils /> },
+    // { "/personas", "Operaciones" },
   ];
 
   return (
@@ -21,14 +28,18 @@ export const Sidebar = () => {
         <ul>
           {links.map((link, index) => (
             <li key={index}>
-              <NavLink to={link.to}>{link.name}</NavLink>
+              <NavLink to={link.to}>
+                {link.icon} <label>{link.name}</label>
+              </NavLink>
             </li>
           ))}
         </ul>
       </nav>
 
       <footer className="footer-sidebar">
-        <button>Cerrar Sesión</button>
+        <button>
+          <ExitArrow /> Cerrar Sesión
+        </button>
       </footer>
     </aside>
   );
