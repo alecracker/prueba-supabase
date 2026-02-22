@@ -14,28 +14,31 @@ export const AuthProvider = ({ children }) => {
     // Aquí iría la lógica para enviar los datos al servidor
     // TODO: Devuelve un objeto con una propiedad (En este caso porque solo se selecciona password_hash)
 
-    const { data } = await supabase
+    const { data, error } = await supabase
       .from("users")
       .select("*")
       .eq("email", formData.email)
       .single();
 
     // TODO: Si no pones .single te devuelve un array
-    if (!data) {
-      alert("Este email no esta registrado.");
-      return;
+    if (error || !data) {
+      throw new Error("Usuario no encontrado");
     }
 
     const isMatch = await bcrypt.compare(formData.password, data.password_hash);
     if (!isMatch) {
-      alert("Contraseña incorrecta");
-      return;
+      throw new Error("Contraseña incorrecta");
     }
 
     setUserData(data);
     setIsAuthenticated(true);
     navigate("/");
-    alert(`Bienvenido ${data.username}`);
+  };
+
+  const handleLogout = () => {
+    setUserData({});
+    setIsAuthenticated(false);
+    navigate("/");
   };
 
   return (
@@ -44,6 +47,7 @@ export const AuthProvider = ({ children }) => {
         isAuthenticated,
         userData,
         handleLogin,
+        handleLogout,
       }}
     >
       {children}

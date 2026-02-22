@@ -6,8 +6,24 @@
   align-items: center;
   min-height: 100vh;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background-image:
+    radial-gradient(
+      circle at 50% 100%,
+      rgba(255, 69, 0, 0.6) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      circle at 50% 100%,
+      rgba(255, 140, 0, 0.4) 0%,
+      transparent 70%
+    ),
+    radial-gradient(
+      circle at 50% 100%,
+      rgba(255, 215, 0, 0.3) 0%,
+      transparent 80%
+    );
   padding: 20px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .auth-form {
@@ -105,15 +121,15 @@
     padding: 30px 20px;
     margin: 10px;
   }
-  
+
   .auth-form h2 {
     font-size: 24px;
   }
-  
+
   .form-group input {
     padding: 12px;
   }
-  
+
   .auth-button {
     padding: 12px;
   }

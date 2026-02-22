@@ -1,29 +1,28 @@
+import { useNavigate } from "react-router-dom";
+import { sileo } from "sileo";
 import "./ModulesCard.css";
-export function ModulesCard() {
+export function ModulesCard({ icon, name, description, path }) {
+  const navigate = useNavigate();
+
+  const handleCardClick = () => {
+    navigate(path);
+    sileo.success({
+      title: "Booking confirmed",
+      fill: "black",
+      styles: {
+        title: "text-white!",
+        description: "text-white/75!",
+      },
+    });
+  };
+
   return (
-    <div className="modules-main-grid">
-      <div
-        className="modules-main-card"
-        // onClick={() => handleCardClick(card.path)}
-      >
-        <div className="modules-main-card-icon">icono</div>
-        <div className="modules-main-card-content">
-          <h3>Hola</h3>
-          <p>Mundo</p>
-          <small>Proyecto:</small>
-        </div>
+    <main className="modules-main-card" onClick={handleCardClick}>
+      <div className="modules-main-card-icon">{icon}</div>
+      <div className="modules-main-card-content">
+        <h3>{name}</h3>
+        <p>{description}</p>
       </div>
-      <div
-        className="modules-main-card"
-        // onClick={() => handleCardClick(card.path)}
-      >
-        <div className="modules-main-card-icon">icono</div>
-        <div className="modules-main-card-content">
-          <h3>Hola</h3>
-          <p>Mundo</p>
-          <small>Proyecto:</small>
-        </div>
-      </div>
-    </div>
+    </main>
   );
 }

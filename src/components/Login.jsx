@@ -1,4 +1,5 @@
 import "./Auth.css";
+import { sileo } from "sileo";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
@@ -26,7 +27,22 @@ export const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     //Agregado para la base de datos
-    handleLogin(formData);
+    sileo.promise(handleLogin(formData), {
+      loading: {
+        title: "Iniciando sesión",
+      },
+      success: () => ({
+        title: `Sesión iniciada correctamente`,
+      }),
+      error: (err) => {
+        console.log("Error detallado en Login:", err);
+        return {
+          title: "Error al iniciar sesión",
+          description: err.message,
+          fill: "black",
+        };
+      },
+    });
   };
 
   return (
