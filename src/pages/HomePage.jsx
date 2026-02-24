@@ -1,3 +1,4 @@
+import './styles/homepage.css';
 import { useEffect } from "react";
 import { sileo } from "sileo";
 function HomePage() {
@@ -10,6 +11,9 @@ function HomePage() {
   return (
     <>
       <h1>Home</h1>
+      <div className='container'>
+      
+      </div>
     </>
   );
 }

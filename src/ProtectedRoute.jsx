@@ -1,5 +1,6 @@
-import { Outlet, Navigate, NavLink } from "react-router-dom";
+import { Outlet, Navigate } from "react-router-dom";
 import { useAuth } from "./contexts/AuthContext";
+import "./pages/styles/protectedRoute.css";
 import { Sidebar } from "./components/Sidebar";
 import { useState } from "react";
 

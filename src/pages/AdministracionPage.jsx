@@ -8,7 +8,7 @@ export const AdministracionPage = () => {
       icon: <PersonMoney />,
       name: "Nomina & Personal",
       description: "Gestion de Nomina & Personal",
-      path: "/",
+      path: "/administracion/nomina",
     },
     {
       icon: <DollarBill />,

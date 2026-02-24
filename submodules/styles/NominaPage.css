@@ -1,0 +1,28 @@
+.btn__add{
+
+    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+    background-color: #ee4a21;
+    border: none;
+    color: white;
+    padding: 12px 26px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 50px;
+    transition: all 0.4s ease;
+    font-weight: bold;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.btn__add:hover{
+
+    box-shadow: wheat 0px 0px 8px;
+    transform: translateY(-2px);
+
+}
+.container__btn{
+    display: flex;
+    justify-content: flex-end;
+}
