@@ -1,14 +1,14 @@
-import ModuleDescription from "../components/ModuleDescription";
-import { ModulesCard } from "../components/ModulesCard";
+import "./styles/usuarios.css";
+import { CardEmpleado } from "../components/Card(Empleado)";
 
-export const UsuariosPage = () => {
-  return (
+export const UsuariosPage = ()=>{
+  return(
     <>
-      <ModuleDescription
-        title="Usuarios"
-        description="Gestión de usuarios, roles y permisos"
-      />
-      <ModulesCard />
+      <h1>Usuarios</h1>
+      <div className="Usuarios__container">
+        
+      </div>
     </>
-  );
-};
+  )
+}
+

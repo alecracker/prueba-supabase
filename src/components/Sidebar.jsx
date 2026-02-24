@@ -1,24 +1,27 @@
-import { Outlet, Navigate, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+
 import "./Sidebar.css";
 import {
   BriefCase,
   ClipboardList,
   Utensils,
-  ExitArrow,
+  ExitIcons,
 } from "../assets/Icons/Icons";
+import { useAuth } from "../contexts/AuthContext";
 
 export const Sidebar = () => {
+  const { handleLogout } = useAuth();
   const links = [
     { to: "/", name: "Resumen", icon: <BriefCase /> },
-    { to: "/usuarios", name: "Administracion", icon: <BriefCase /> },
-    { to: "/clientes", name: "Operaciones", icon: <Utensils /> },
+    { to: "/administracion", name: "Administracion", icon: <BriefCase /> },
+    { to: "/operaciones", name: "Operaciones", icon: <Utensils /> },
     // { "/personas", "Operaciones" },
   ];
 
   return (
     <aside>
       <header>
-        <div className="logo-image"></div>
+        <img src="/isotipo.svg" alt="QuickFire Logo" className="logo-image" />
         <div className="header-text">
           <h1>QuickFire Kitchen</h1>
           <h4>Sistema de Gestión</h4>
@@ -37,8 +40,8 @@ export const Sidebar = () => {
       </nav>
 
       <footer className="footer-sidebar">
-        <button>
-          <ExitArrow /> Cerrar Sesión
+        <button onClick={handleLogout}>
+          <ExitIcons /> Cerrar Sesión
         </button>
       </footer>
     </aside>
