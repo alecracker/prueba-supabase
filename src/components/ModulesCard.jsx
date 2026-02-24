@@ -6,6 +6,7 @@ export function ModulesCard({ icon, name, description, path }) {
 
   const handleCardClick = () => {
     navigate(path);
+    
     sileo.success({
       title: "Booking confirmed",
       fill: "black",

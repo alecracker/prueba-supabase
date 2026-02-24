@@ -12,6 +12,7 @@ import { Withdrawals } from "./components/WithDrawalls.jsx";
 
 import { Inventory } from "../submodules/Inventory.jsx";
 import { Orders } from "../submodules/Orders.jsx";
+import { Preview } from "./components/Preview.jsx";
 
 import Register from "./components/Register.jsx";
 import HomePage from "./pages/HomePage.jsx";
@@ -29,6 +30,7 @@ function App() {
             <Route index element={<AdministracionPage />} />
             <Route path="nomina" element={<NominaPage />} />
           </Route>
+
           <Route path="/operaciones">
             <Route index element={<OperationPage />} />
             <Route path="inventario" element={<Inventory />}> 

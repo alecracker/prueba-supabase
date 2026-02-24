@@ -9,6 +9,7 @@ import {
 import "../index.css";
 
 export const OperationPage = () => {
+  
   const CardData = [
     {
       icon: <InventoryIcon />,

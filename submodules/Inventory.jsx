@@ -3,7 +3,9 @@ import { Outlet } from "react-router-dom";
 import StatsCard from "../src/components/StatsCard.jsx";
 import { InventoryIcon } from "../src/assets/Icons/Icons.jsx";
 import Header from "../src/components/Header.jsx";
+import { Preview } from "../src/components/Preview.jsx";
 import "./Inventory.css";
+
 export function Inventory() {
   const stats = [
     { title: "Total Productos", value: "100", icon: <InventoryIcon /> },
@@ -12,37 +14,36 @@ export function Inventory() {
   ];
 
   const tabs = [
-    { value: "/operaciones/inventario", label: "Inventario" },
+    { path: "/operaciones/inventario", label: "Inventario" },
     {
-      value: "/operaciones/inventario/withdrawals",
+      path: "/operaciones/inventario/withdrawals",
       label: "Historial de Retiros",
     },
   ];
   const [activeTab, setActiveTab] = useState("/operaciones/inventario");
 
   const handleTabChange = (tab) => {
-    setActiveTab(tab);
+    setActiveTab(tab.path);
   };
   return (
-    <section className="stats-container">
-      {stats.map((stat, index) => (
-        <StatsCard
-          key={index}
-          title={stat.title}
-          value={stat.value}
-          icon={stat.icon}
-        />
-      ))}
+    <main className="inventory-container">
+      <section className="stats-container">
+        {stats.map((stat, index) => (
+          <StatsCard
+            key={index}
+            title={stat.title}
+            value={stat.value}
+            icon={stat.icon}
+          />
+        ))}
+      </section>
 
       <section className="add-inventory-container">
-        <Header
-          tabs={tabs}
-          activeTab={activeTab}
-          onTabChange={handleTabChange}
-        />
-
-        <Outlet />
+        <Header tabs={tabs} />
+        <section className="inventory-outlet-wrapper">
+          <Outlet />
+        </section>
       </section>
-    </section>
+    </main>
   );
 }
