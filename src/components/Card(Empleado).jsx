@@ -12,7 +12,7 @@ export const CardEmpleado = ({ empleado, onUpdate }) => {
     const handleClose = () => {
         setIsModalOpen(false);
         setIsEditing(false);
-        setFormData(empleado); // Reset states
+        setFormData(empleado); 
     };
 
     const handleChange = (e) => {
@@ -25,7 +25,7 @@ export const CardEmpleado = ({ empleado, onUpdate }) => {
     const handleUpdate = async (e) => {
         e.preventDefault();
         const { error } = await supabase
-            .from("employes") // Corrected table name
+            .from("employes") 
             .update({
                 name: formData.name,
                 role: formData.role,
