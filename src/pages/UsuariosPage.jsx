@@ -6,8 +6,7 @@ export const UsuariosPage = ()=>{
     <>
       <h1>Usuarios</h1>
       <div className="Usuarios__container">
-        <CardEmpleado/>
-        <CardEmpleado/>
+        
       </div>
     </>
   )
