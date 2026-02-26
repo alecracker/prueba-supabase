@@ -1,0 +1,67 @@
+.form-add-menu {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+
+  gap: 1rem;
+  label {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 0.5rem;
+    color: var(--text-primary);
+    font-size: 0.7rem;
+    font-weight: 600;
+    width: 100%;
+    input,
+    textarea,
+    select {
+      width: 100%;
+      padding: 0.8rem;
+      background-color: #211107;
+      border: 1px solid #3d2314;
+      border-radius: 4px;
+
+      &:focus {
+        outline: none;
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 2px var(--primary-color);
+        transition:
+          all 0.3s ease,
+          box-shadow 0.3s ease;
+      }
+    }
+    textarea {
+      resize: none;
+      height: 100px;
+    }
+  }
+}
+
+.form-add-menu-section {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 0.5rem;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 2rem;
+  button {
+    background-color: var(--primary-color);
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    &:hover {
+      transform: translateY(-2px);
+    }
+  }
+}

@@ -48,6 +48,15 @@ export const Login = () => {
   return (
     <div className="auth-container">
       <div className="auth-form">
+        <header className="auth-header">
+          <img src="/isotipo.svg" alt="QuickFire Logo" className="logo-image" />
+          <div className="header-text">
+            <h1>
+              QUICK<span>FIRE</span>
+            </h1>
+            <h3>KITCHEN</h3>
+          </div>
+        </header>
         <h2>Iniciar Sesión</h2>
         <form onSubmit={handleSubmit}>
           <div className="form-group">

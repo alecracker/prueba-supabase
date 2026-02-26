@@ -5,8 +5,14 @@ import supabase from "../api/supaBase";
 import bcrypt from "bcryptjs";
 
 export const AuthProvider = ({ children }) => {
-  const [userData, setUserData] = useState({});
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [userData, setUserData] = useState(() => {
+    const saved = localStorage.getItem("userSession");
+    return saved ? JSON.parse(saved) : {};
+  });
+
+  const [isAuthenticated, setIsAuthenticated] = useState(() => {
+    return localStorage.getItem("isAuthenticated") === "true";
+  });
   const navigate = useNavigate();
 
   const handleLogin = async (formData) => {
@@ -21,7 +27,7 @@ export const AuthProvider = ({ children }) => {
       .single();
 
     // TODO: Si no pones .single te devuelve un array
-    
+
     if (error || !data) {
       throw new Error("Usuario no encontrado");
     }
@@ -33,13 +39,20 @@ export const AuthProvider = ({ children }) => {
 
     setUserData(data);
     setIsAuthenticated(true);
-    navigate("/");
+    localStorage.setItem("userSession", JSON.stringify(data));
+    localStorage.setItem("isAuthenticated", "true");
+
+    const lastPath = localStorage.getItem("lastPath") || "/";
+    navigate(lastPath);
   };
 
   const handleLogout = () => {
     setUserData({});
     setIsAuthenticated(false);
-    navigate("/");
+    localStorage.removeItem("userSession");
+    localStorage.removeItem("isAuthenticated");
+    localStorage.removeItem("lastPath");
+    navigate("/login");
   };
 
   return (

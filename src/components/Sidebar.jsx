@@ -17,9 +17,9 @@ export const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
     setSidebarOpen(!sidebarOpen);
   };
   const links = [
-    { to: "/", name: "Resumen", icon: <BriefCase /> },
+    { to: "/", name: "operaciones", icon: <Utensils /> },
     { to: "/administracion", name: "Administracion", icon: <BriefCase /> },
-    { to: "/operaciones", name: "Operaciones", icon: <Utensils /> },
+
     // { "/personas", "Operaciones" },
   ];
 

@@ -3,55 +3,66 @@
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  font-family: "Poppins", sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 0.8rem;
   margin: auto;
-  
+  color: var(--text-primary);
 }
-section
 
 .preview-item .item-content {
   width: 80px;
   height: 80px;
   padding: 1rem;
-  background-color: var(--border-color);
+  background-color: var(--surface-variant);
   border-radius: 50%;
   svg {
     width: 100%;
     height: 100%;
     fill: var(--text-secondary);
   }
-  
 }
 
 .preview-item-container {
   display: flex;
   flex-direction: column;
   padding: 1rem;
-  border-radius: 0.5rem;
-  margin-top: 1rem;
-  color: white;
-  gap: 1rem;
-  background-color: red;
-  
+  border-radius: 12px;
+  gap: 0.75rem;
 
   .preview-item-card {
-    background-color: var(--border-color);
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
-    color: #000000;
+    background: linear-gradient(
+      145deg,
+      var(--surface-variant),
+      var(--surface-variant-2)
+    );
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+    color: var(--text-secondary);
+    transition:
+      border-color 0.2s ease,
+      transform 0.2s ease;
+
+    &:hover {
+      border-color: var(--primary-color);
+      transform: translateX(2px);
+    }
   }
+
   header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     gap: 1px;
 
     h1 {
       font-size: 1rem;
       font-weight: bold;
-      margin-bottom: 1px;
+      margin-bottom: 2px;
+      color: var(--text-secondary);
     }
+
     button {
       display: flex;
       align-items: center;
@@ -65,20 +76,24 @@ section
       border-radius: 50%;
 
       &:hover {
-        background-color: #d88a8a;
+        background-color: rgba(220, 73, 33, 0.25);
       }
     }
+
     svg {
       width: 1rem;
       height: 0.8rem;
-      fill: red;
+      fill: var(--primary-color);
     }
   }
+
   h5 {
     font-size: 0.7rem;
-    font-weight: bold;
-    margin-bottom: 1px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 4px;
   }
+
   h6 {
     display: flex;
     flex-direction: row;
@@ -87,5 +102,10 @@ section
     font-size: 0.8rem;
     font-weight: bold;
     margin-bottom: 1px;
+    color: var(--text-primary);
+
+    span {
+      color: var(--border-color);
+    }
   }
 }

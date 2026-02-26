@@ -10,12 +10,6 @@ export const AdministracionPage = () => {
       description: "Gestion de Nomina & Personal",
       path: "/administracion/nomina",
     },
-    {
-      icon: <DollarBill />,
-      name: "Gastos Administrativos",
-      description: "Gestion de Gastos Administrativos",
-      path: "/",
-    },
   ];
   return (
     <>

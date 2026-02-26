@@ -1,9 +1,14 @@
 .common-stat-card {
-  background: #ffffff;
+  background: linear-gradient(
+    145deg,
+    var(--surface-variant-2),
+    var(--surface-variant-3)
+  );
   padding: 20px;
-  border-radius: 8px;
+  border-radius: 12px;
   text-align: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -13,15 +18,17 @@
 }
 
 .common-stat-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-  border-top: 3px solid #dc4921;
+  transform: translateY(-3px);
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.5),
+    0 0 12px rgba(220, 73, 33, 0.2);
+  border-color: var(--primary-color);
 }
 
 .common-stat-card h4 {
   margin: 0 0 15px 0;
   font-size: 14px;
-  color: #9ca3af;
+  color: var(--text-primary);
   text-transform: uppercase;
   font-weight: 600;
   letter-spacing: 0.05em;
@@ -42,7 +49,7 @@
 }
 
 .stat-icon svg {
-  fill: #dc4921;
+  fill: var(--primary-color);
   width: 32px;
   height: 32px;
 }
@@ -51,7 +58,7 @@
   font-size: 28px;
   font-weight: bold;
   line-height: 1;
-  color: #dc4921;
+  color: var(--text-secondary);
 }
 
 @media (max-width: 768px) {
