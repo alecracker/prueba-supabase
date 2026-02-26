@@ -14,6 +14,21 @@ export const CardEmpleado = ({ empleado, onUpdate }) => {
         setIsEditing(false);
         setFormData(empleado); 
     };
+    const handleDelete = async () => {
+        const { error } = await supabase
+            .from("employes")
+            .delete()
+            .eq("id", empleado.id);
+
+        if (error) {
+            console.error(error);
+            alert("Error al eliminar: " + error.message);
+        } else {
+            alert("Empleado eliminado con éxito");
+            setIsModalOpen(false);
+            if (onUpdate) onUpdate();
+        }
+    };
 
     const handleChange = (e) => {
         setFormData({
@@ -125,6 +140,7 @@ export const CardEmpleado = ({ empleado, onUpdate }) => {
                         <div className="Modal__actions" >
                             <button className="Card__btn Btn__save" type="submit">Actualizar</button>
                             <button className="Card__btn Btn__save" type="button" onClick={() => setIsEditing(false)} >Cancelar</button>
+                            <button className="Card__btn Btn__save" type="button" onClick={handleDelete} >Eliminar</button>
                         </div>
                     </form>
                 ) : (

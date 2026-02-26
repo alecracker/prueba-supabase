@@ -54,6 +54,10 @@ export const Preview = ({ itemsList = [], onDelete }) => {
               {/* Usar precio de base de datos */}
               <span>Precio (Und):</span> ${item.precio_unit}
             </h6>
+            <h6 className="total-price-tag">
+              {/* Usar precio de base de datos */}
+              <span>Precio Total:</span> ${item.precio_unit * item.cantidad}
+            </h6>
           </div>
         );
       })}
