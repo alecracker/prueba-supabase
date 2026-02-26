@@ -1,0 +1,61 @@
+
+.movements_form {
+  background-color: #fff; 
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); 
+  margin: 20px auto;
+  max-width: 1000px;
+  color: #ff5e00;
+ 
+}
+
+.table_movements {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  overflow: hidden;
+  border-radius: 8px; 
+}
+
+
+.table_movements thead {
+  background-color: #fff;
+}
+
+.th__movements {
+  padding: 16px;
+  text-align: left;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #ff5e00; 
+  border-bottom: 2px solid #4ade80; 
+}
+
+
+.table_movements tbody tr {
+  border-bottom: 1px solid #333;
+  transition: background-color 0.2s ease; 
+}
+
+.table_movements tbody tr:hover {
+  background-color: #2d2d2d; 
+}
+
+.table_movements td {
+  padding: 16px;
+  font-size: 0.95rem;
+  color: #fc6500;
+}
+
+.table_movements td.positive-change {
+  color: #4ade80;
+  font-weight: 700;
+}
+
+.table_movements td.negative-change {
+  color: #f87171;
+  font-weight: 700;
+}
