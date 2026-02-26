@@ -9,11 +9,13 @@
   justify-content: center;
   align-items: center;
   min-height: 120px;
+  transition: 0.3s ease all;
 }
 
 .common-stat-card:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  border-top: 3px solid #dc4921;
 }
 
 .common-stat-card h4 {

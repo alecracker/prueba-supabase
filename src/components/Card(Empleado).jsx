@@ -43,7 +43,7 @@ export const CardEmpleado = ({ empleado, onUpdate }) => {
         } else {
             alert("Empleado actualizado con éxito");
             setIsEditing(false);
-            if (onUpdate) onUpdate(); // Refresh the list
+            if (onUpdate) onUpdate(); 
         }
     };
 

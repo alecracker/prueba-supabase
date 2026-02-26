@@ -6,7 +6,9 @@
   font-family: "Poppins", sans-serif;
   font-size: 0.8rem;
   margin: auto;
+  
 }
+section
 
 .preview-item .item-content {
   width: 80px;
@@ -19,6 +21,7 @@
     height: 100%;
     fill: var(--text-secondary);
   }
+  
 }
 
 .preview-item-container {
@@ -30,6 +33,7 @@
   color: white;
   gap: 1rem;
   background-color: red;
+  
 
   .preview-item-card {
     background-color: var(--border-color);
