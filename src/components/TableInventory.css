@@ -12,6 +12,7 @@
   padding: 3rem 4rem;
 
   form {
+    box-shadow: rgba(255, 255, 255, 0.451) 0 0 5px;
     display: flex;
     flex-direction: column;
     gap: 1vh;
@@ -40,12 +41,13 @@
       }
     }
     input {
+
       border: none;
       background-color: var(--text-secondary);
 
       padding: 12px;
       border-radius: 5px;
-      color: var(--text-primary);
+      color: black;
     }
 
     button {
@@ -62,12 +64,18 @@
       font-size: 1rem;
       font-weight: bold;
       font-family: "Poppins", sans-serif;
+      transition: 0.2s ease-in-out;
 
       svg {
         width: 20px;
         height: 20px;
         fill: #fff;
       }
+    }
+    button:hover{
+      translate: 0 -1px;
+      box-shadow: rgba(255, 255, 255, 0.451) 0 0 5px;
+      color: #fff;
     }
   }
   .input-group {
@@ -89,6 +97,32 @@
     background-color: var(--primary-color);
     overflow-y: auto;
     max-height: 50vh;
-    border: 2px dashed var(--border-color);
+    border: 1px solid var(--border-color); 
+    box-shadow: rgba(255, 255, 255, 0.451) 0 0 6px;
   }
+
+  /* --- Scrollbar moderno y redondeado --- */
+  .preview-container::-webkit-scrollbar {
+    width: 8px; 
+  }
+  
+  .preview-container::-webkit-scrollbar-track {
+    background: transparent; 
+    margin: 8px 0; 
+  }
+  
+  .preview-container::-webkit-scrollbar-thumb {
+    background-color: #555; 
+  }
+  
+  .preview-container::-webkit-scrollbar-thumb:hover {
+    background-color: #888; 
+  }
+}
+.Category__section {
+  border: none;
+  background-color: var(--text-secondary);
+  padding: 12px;
+  border-radius: 5px;
+  color: black;
 }
