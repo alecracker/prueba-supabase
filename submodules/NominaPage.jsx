@@ -18,7 +18,6 @@ const initialFormState = {
 };
 
 export const NominaPage = () => {
-
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [empleados, setEmpleados] = useState([]);
   const [formData, setFormData] = useState(initialFormState);
@@ -63,7 +62,10 @@ export const NominaPage = () => {
     });
   };
   const editEmploye = async (id) => {
-    const { data, error } = await supabase.from("employes").update(formData).eq("id", id);
+    const { data, error } = await supabase
+      .from("employes")
+      .update(formData)
+      .eq("id", id);
     if (error) {
       console.error("Error editando empleado:", error);
       return;
@@ -76,8 +78,8 @@ export const NominaPage = () => {
   const { name, hire_date, role, salary, email, turn, type } = formData;
 
   return (
-    <>
-      <h1>Nomina & Personal</h1>
+    <div className="nomina-page">
+      <h1>Nomina &amp; Personal</h1>
       <CardContainer empleados={empleados} onUpdate={getEmpleados} />
 
       <div className="container__btn">
@@ -94,26 +96,60 @@ export const NominaPage = () => {
         <form className="Modal__form" onSubmit={handleSubmitEmploye}>
           <div className="Inputs">
             <label>Nombre completo:</label>
-                  <input name="name" type="text" value={formData.name} placeholder="Luis Alfons Sawamura" onChange={handleChange} required/>
+            <input
+              name="name"
+              type="text"
+              value={formData.name}
+              placeholder="Luis Alfons Sawamura"
+              onChange={handleChange}
+              required
+            />
           </div>
 
           <div className="Inputs">
             <label>Fecha de contratación:</label>
-                  <input name="hire_date" type="date" value={formData.hire_date} onChange={handleChange} required/>
+            <input
+              name="hire_date"
+              type="date"
+              value={formData.hire_date}
+              onChange={handleChange}
+              required
+            />
           </div>
 
           <div className="Inputs">
             <label>Puesto:</label>
-                  <input name="role" type="text" value={formData.role} placeholder="Chef" onChange={handleChange} required/>
+            <input
+              name="role"
+              type="text"
+              value={formData.role}
+              placeholder="Chef"
+              onChange={handleChange}
+              required
+            />
           </div>
 
           <div className="Inputs">
             <label>Salario:</label>
-                  <input name="salary" type="number" value={formData.salary} placeholder="1000000" onChange={handleChange} required/>
+            <input
+              name="salary"
+              type="number"
+              value={formData.salary}
+              placeholder="1000000"
+              onChange={handleChange}
+              required
+            />
           </div>
           <div className="Inputs">
             <label>Correo electrónico:</label>
-                  <input name="email" type="email" value={formData.email} placeholder="luisalfons@gmail.com" onChange={handleChange} required/>
+            <input
+              name="email"
+              type="email"
+              value={formData.email}
+              placeholder="luisalfons@gmail.com"
+              onChange={handleChange}
+              required
+            />
           </div>
 
           <div className="Input__row">
@@ -142,9 +178,6 @@ export const NominaPage = () => {
           </button>
         </form>
       </Modal>
-    </>
+    </div>
   );
 };
-    
-  
-

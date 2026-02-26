@@ -18,15 +18,15 @@ export function Inventory() {
     const { count: countProducts } = await supabase
       .from("products_inventory")
       .select("*", { count: "exact", head: true });
-    
+
     const { count: countCategories } = await supabase
       .from("categories")
       .select("*", { count: "exact", head: true });
-    
+
     const { count: countMovements } = await supabase
       .from("inventory_movements")
       .select("*", { count: "exact", head: true });
-    
+
     setStatsData({
       products: countProducts || 0,
       categories: countCategories || 0,
@@ -39,19 +39,31 @@ export function Inventory() {
   }, []);
 
   const stats = [
-    { title: "Total Productos", value: statsData.products, icon: <InventoryIcon /> },
-    { title: "Categorias", value: statsData.categories, icon: <InventoryIcon /> },
-    { title: "Total Movimientos", value: statsData.movements, icon: <InventoryIcon /> },
+    {
+      title: "Total Productos",
+      value: statsData.products,
+      icon: <InventoryIcon />,
+    },
+    {
+      title: "Categorias",
+      value: statsData.categories,
+      icon: <InventoryIcon />,
+    },
+    {
+      title: "Total Movimientos",
+      value: statsData.movements,
+      icon: <InventoryIcon />,
+    },
   ];
 
   const tabs = [
-    { path: "/operaciones/inventario", label: "Inventario" },
+    { path: "/inventario", label: "Inventario" },
     {
-      path: "/operaciones/inventario/withdrawals",
+      path: "/inventario/withdrawals",
       label: "Historial de Movimientos",
     },
   ];
-  const [activeTab, setActiveTab] = useState("/operaciones/inventario");
+  const [activeTab, setActiveTab] = useState("/inventario");
 
   const handleTabChange = (tab) => {
     setActiveTab(tab.path);

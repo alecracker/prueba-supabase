@@ -14,19 +14,19 @@ export const OperationPage = () => {
       icon: <InventoryIcon />,
       name: "Inventario",
       description: "Gestion de Inventario",
-      path: "/operaciones/inventario",
+      path: "/inventario",
     },
     {
       icon: <OrderIcon />,
       name: "Pedidos",
       description: "Gestion de Pedidos",
-      path: "/operaciones/pedidos",
+      path: "/pedidos",
     },
     {
       icon: <CartArrowIcon />,
       name: "Menu",
       description: "Gestion de Compras",
-      path: "/operaciones/menu",
+      path: "/menu",
     },
   ];
   return (
