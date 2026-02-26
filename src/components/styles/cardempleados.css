@@ -8,7 +8,8 @@
     color: white;
     padding: 25px;
     margin: 10px;
-    width: 350px;
+    width: 100%;
+    max-width: 350px;
     height: auto;
     min-height: 400px;
     flex-direction: column;
@@ -195,10 +196,12 @@
     align-items: center;
     gap:8px;
     height: auto; 
+    width: 100%;
 }
 
 .Input__row {
     display: flex;
+    flex-wrap: wrap;
     gap: 15px;
     width: 100%;
     justify-content: center;
@@ -209,11 +212,12 @@
     flex-direction: column;
     align-items: flex-start; 
     gap: 5px;
-    width: 250px;
+    width: 100%;
 }
 
 .Input__row .Inputs {
-    width: 118px; 
+    flex: 1;
+    min-width: 120px;
 }
 
 .Input__row .Inputs select {
@@ -265,10 +269,36 @@
 .Btn__edit, .Btn__save{
 
     width: 20em;
+    max-width: 100%;
     display: block;
     padding: 10px 30px;
     margin: 20px auto;
 
 }
 
-
+@media (max-width: 480px) {
+    .Card {
+        padding: 15px;
+        min-height: auto; /* Allow shrink */
+    }
+    .Card__name {
+        font-size: 26px;
+    }
+    .Card__role {
+        font-size: 20px;
+    }
+    .Img__perfil {
+        width: 120px;
+        height: 120px;
+    }
+    .Modal__content {
+        padding: 15px 20px;
+    }
+    .Input__row {
+        flex-direction: column;
+        gap: 8px;
+    }
+    .Btn__edit, .Btn__save {
+        width: 100%;
+    }
+}
