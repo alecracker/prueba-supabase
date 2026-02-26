@@ -78,11 +78,44 @@ export const MenuProvider = ({ children }) => {
     }
     sileo.success({ title: "Ingrediente agregado exitosamente" });
   };
+
+  const handleDeleteMenu = async (id) => {
+    const { error } = await supabase.from("menus").delete().eq("id", id);
+    if (error) {
+      sileo.error("Error al eliminar el menu");
+      return;
+    }
+    sileo.success({ title: "Menu eliminado exitosamente" });
+    fetchMenu();
+  };
+
+  const handleUpdateMenu = async (id, formDataMenu) => {
+    const { error } = await supabase
+      .from("menus")
+      .update({
+        name: formDataMenu.name,
+        price: formDataMenu.price,
+        description: formDataMenu.description,
+        image: formDataMenu.image,
+        category_id: formDataMenu.category,
+      })
+      .eq("id", id);
+
+    if (error) {
+      sileo.error("Error al actualizar el menu");
+      return false;
+    }
+    sileo.success({ title: "Menu actualizado exitosamente" });
+    fetchMenu();
+    return true;
+  };
   return (
     <MenuContext.Provider
       value={{
         handleSaveMenu,
         handleSaveIngredients,
+        handleDeleteMenu,
+        handleUpdateMenu,
         fetchMenu,
         menusData,
         categories,

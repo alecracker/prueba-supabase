@@ -1,0 +1,63 @@
+.orders-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 4% 10px;
+}
+
+.orders-summary {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  width: 100%;
+  max-width: 1200px;
+  text-align: center;
+}
+
+.orders-summary h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.orders-summary h2 span {
+  color: #fff;
+  font-weight: 800;
+  margin-left: 10px;
+}
+
+.orders-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 10px;
+  width: 100%;
+  max-width: 1200px;
+  padding: 10px;
+  justify-items: center;
+}
+
+.no-orders {
+  font-size: 1.5rem;
+  color: #888;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+  grid-column: 1 / -1;
+  gap: 20px;
+}
+
+.no-orders-icon {
+  width: 80px;
+  height: 80px;
+  color: #bdc3c7;
+  opacity: 0.6;
+}

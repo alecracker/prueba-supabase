@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useInventory } from "../contexts/InventoryContext";
 import { useMenu } from "../contexts/MenuContext";
+import { sileo } from "sileo";
 import "./styles/AddIngredients.css";
 export const AddIngredients = ({
   toggleModal,
@@ -11,7 +12,8 @@ export const AddIngredients = ({
 }) => {
   const [listItem, setListItem] = useState([]);
   const { inventory, searchStock, units } = useInventory();
-  const { handleSaveMenu, handleSaveIngredients, fetchMenu } = useMenu();
+  const { handleSaveMenu, handleSaveIngredients, fetchMenu, handleUpdateMenu } =
+    useMenu();
   const [formData, setFormData] = useState({
     nombre: "",
     product_id: "",
@@ -43,22 +45,35 @@ export const AddIngredients = ({
     : 0;
 
   const handleSubmit = async () => {
-    const menuId = await handleSaveMenu(menuData);
-    if (!menuId) return;
+    let menuId = menuData.id;
 
+    if (menuId) {
+      // Estamos editando
+      const success = await handleUpdateMenu(menuId, menuData);
+      if (!success) return;
+    } else {
+      // Estamos creando
+      menuId = await handleSaveMenu(menuData);
+      if (!menuId) return;
+    }
+
+    // Guardar ingredientes (limpieza previa lógica de negocio pendiente si se requiere)
     for (const item of listItem) {
       await handleSaveIngredients(item, menuId);
     }
 
     fetchMenu();
 
-    setMenuData({
-      name: "",
-      price: "",
-      description: "",
-      image: "",
-      category: "",
-    });
+    if (!menuData.id) {
+      setMenuData({
+        name: "",
+        price: "",
+        description: "",
+        image: "",
+        category: "",
+      });
+    }
+
     setListItem([]);
     handlePreviousStep();
     handleToggleModal();
