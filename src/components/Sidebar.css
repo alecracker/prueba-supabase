@@ -145,12 +145,28 @@ ul {
   }
 }
 
+/* Transiciones para los textos */
+aside header .header-text,
+aside ul li label,
+aside .footer-sidebar label {
+  transition:
+    opacity 0.2s ease,
+    width 0.3s ease;
+  white-space: nowrap;
+  opacity: 1;
+  overflow: hidden;
+}
+
 aside.minimized {
   width: 80px;
   header {
     margin-bottom: 50px;
     .header-text {
-      display: none;
+      opacity: 0;
+      width: 0;
+      padding: 0;
+      margin: 0;
+      pointer-events: none;
     }
     .logo-image {
       margin-top: 10px;
@@ -164,18 +180,18 @@ aside.minimized {
   ul {
     li {
       label {
-        /* opacity: 0;
+        opacity: 0;
         width: 0;
-        overflow: hidden; */
-        display: none;
+        margin: 0;
+        pointer-events: none;
       }
       a {
         width: 35px;
         height: 35px;
         padding: 0;
         margin: 0 auto;
-        /* padding: 0.75rem 0.5rem; */
         justify-content: center;
+        gap: 0;
         svg {
           width: 20px;
           height: 20px;
@@ -185,12 +201,17 @@ aside.minimized {
   }
   .footer-sidebar {
     label {
-      display: none;
+      opacity: 0;
+      width: 0;
+      pointer-events: none;
+      margin: 0;
     }
     button {
       padding: 10px;
       margin: 0 auto;
       justify-content: center;
+      gap: 0;
+      width: auto;
       svg {
         width: 24px;
         height: 24px;

@@ -9,7 +9,6 @@ import {
 import "../index.css";
 
 export const OperationPage = () => {
-  
   const CardData = [
     {
       icon: <InventoryIcon />,
@@ -25,15 +24,9 @@ export const OperationPage = () => {
     },
     {
       icon: <CartArrowIcon />,
-      name: "Compras",
+      name: "Menu",
       description: "Gestion de Compras",
-      path: "/operaciones/compras",
-    },
-    {
-      icon: <ShoppingIcon />,
-      name: "Ventas",
-      description: "Gestion de Ventas",
-      path: "/",
+      path: "/operaciones/menu",
     },
   ];
   return (

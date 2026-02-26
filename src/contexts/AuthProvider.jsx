@@ -6,6 +6,7 @@ import bcrypt from "bcryptjs";
 
 export const AuthProvider = ({ children }) => {
   const [userData, setUserData] = useState({});
+
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const navigate = useNavigate();
 
@@ -21,7 +22,7 @@ export const AuthProvider = ({ children }) => {
       .single();
 
     // TODO: Si no pones .single te devuelve un array
-    
+
     if (error || !data) {
       throw new Error("Usuario no encontrado");
     }

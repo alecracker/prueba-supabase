@@ -1,4 +1,4 @@
-import "./styles/cardempleados.css";
+import "./styles/Modal.css";
 
 export const Modal = ({ isOpen, onClose, title, children }) => {
   if (!isOpen) return null;
